@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contagem de Tempo Juntos</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Carrossel de Fotos -->
+    <div class="carousel">
+        <img src="img/img 10.jpeg" class="active" alt="Foto 1">
+        <img src="img/img 14.jpeg" alt="Foto 2">
+        <img src="img/img 5.jpeg" alt="Foto 3">
+        <img src="img/img 6.jpeg" alt="Foto 4">
+        <img src="img/WhatsApp Image 2024-11-08 at 19.29.07.jpeg" alt="Foto 5">
+        <img src="img/WhatsApp Image 2024-11-08 at 19.29.08 (1).jpeg" alt="Foto 6">
+    </div>
+
+    <!-- Texto personalizado -->
+    <p>Bom, meu amor, pra início de conversa, eu realmente tenho pensado bastante em você, e não vou negar que, tecnicamente, você virou minha vida de cabeça pra baixo. Neste exato momento em que estou escrevendo isso, dia 10/11/2024, às 16h59, estamos tendo uma mini discussão sobre eu ainda não ter te pedido em namoro, e, nossa senhora, garota, deu um nó forte na garganta aqui, viu? 
+        
+        Meu bem, saiba que, desde que você começou a fazer parte da minha vida, eu comecei a me sentir a pessoa mais sortuda do mundo. Sério, você é uma mulher incrível, e eu não quero perder você de jeito nenhum. Você trouxe brilho e luz para os meus dias e está me ensinando a viver de um jeito diferente, mais leve e cheio de amor. Você é muito mais do que eu imaginei.
+        
+        Só de pensar que, nesses 45 dias (a partir do momento em que estou escrevendo este texto), vivemos tantas coisas juntos e, querendo ou não, várias histórias também... Como o dia em que furtamos uma toalha achando que era da sua amiga e, no fim, era do dono da barraca; cada pessoa que nos viu juntos, e essas pessoas, especificamente, eram do Espaço ou crianças, professoras... e entre outras histórias.
+        
+        Amor, não vou prolongar muito este texto, até porque você ainda vai ter que ler o que escrevi no papel. Naisla, só de pensar em tudo que ainda vamos viver juntos, meu coração transborda de alegria. Obrigado por ser exatamente quem você é, por trazer felicidade e significado a cada instante.
+        Você sempre vai ser a melhor parte do meu dia. mesmo que não esteja presente nele, porque você conssegue me fazer feliz até estando longe.</p><br>
+
+    <!-- Contador de Tempo -->
+    <div>
+        <h1>Desde o nosso primeiro beijo</h1>
+        <h2>❤</h2>
+        <div id="time-count">
+            <div class="time-box">
+                <span id="days"></span>
+                <small>Dias</small>
+            </div>
+            <div class="time-box">
+                <span id="hours"></span>
+                <small>Horas</small>
+            </div>
+            <div class="time-box">
+                <span id="minutes"></span>
+                <small>Minutos</small>
+            </div>
+            <div class="time-box">
+                <span id="seconds"></span>
+                <small>Segundos</small>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Código do Carrossel
+        const images = document.querySelectorAll('.carousel img');
+        let currentIndex = 0;
+
+        function showNextImage() {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add('active');
+        }
+
+        setInterval(showNextImage, 3000); // Muda a imagem a cada 3 segundos
+
+        // Código do Contador de Tempo
+        const startDate = new Date('2024-09-26T00:00:00'); // Exemplo: 26 de setembro de 2024 à meia-noite
+
+        function updateTimeCount() {
+            const currentDate = new Date();
+            const timeDifference = currentDate - startDate;
+
+            // Cálculo de dias, horas, minutos e segundos
+            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+            // Exibe o tempo formatado em cada quadrado
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
+        }
+
+        // Atualiza a contagem de tempo a cada segundo
+        setInterval(updateTimeCount, 1000);
+    </script>
+</body>
+</html>
